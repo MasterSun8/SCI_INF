@@ -2,16 +2,20 @@
 #include <string>
 using namespace std;
 
-string cesar(string a){
-    int offset;
+string cesar(string password, int offset=0){
+    
+    if(offset==0){
     cout << "Offset: ";
-    cin >> offset;    
+    cin >> offset;
+    }
+    
     string o = "";
+    
     int x;
     if(offset>25 && offset<0){
         return "Offset is incorrect.";
     }
-    for(char& b : a){
+    for(char& b : password){
         x = int(b) + offset;
         b = x % ('z' + 1);
         if(b > 'a'-1){
@@ -23,24 +27,26 @@ string cesar(string a){
     return o;
 }
 
-string przestawienie(string a){
+string przestawienie(string password){
     char o;
-    for(int x = 0; x < a.length(); x+=2){
-        o = a[x+1];
-        a[x+1] = a[x];
+    for(int x = 0; x < password.length(); x+=2){
+        o = password[x+1];
+        password[x+1] = password[x];
         if(o){
-            a[x] = o;
+            password[x] = o;
         }
     }
-    return a;
+    return password;
 }
 
-string decypher(string a){
-    return "decyphered";
+void decypher(string password){
+    for(int i = 1; i<26;i++){
+        cout << "Offset- " << i << " Password- " << cesar(password, i) << endl;
+    }
 }
 
-string both(string a){
-    return cesar(przestawienie(a));
+string both(string password){
+    return cesar(przestawienie(password));
 }
 
 int main(){
@@ -65,7 +71,7 @@ int main(){
         cout << both(password) << endl;
         break;
     case 'd':
-        cout << decypher(password) << endl;
+        decypher(password);
         break;
     default:
         cout << "Niepoprawna opcja." << endl;
