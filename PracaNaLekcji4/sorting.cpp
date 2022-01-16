@@ -8,12 +8,13 @@
 using namespace std;
 
 Sorting::Sorting(){
-    amount = 100000;
+    amount = 10000000;
     srand (time(NULL));
 
     for (int x = 0; x < amount; x++){
-        vec.push_back(rand() % 1000 + 1);
+        vec.push_back(rand() % (amount * 10) + 1);
         //vec.push_back(amount - x);
+        //vec.push_back(x);
     }
 }
 
@@ -69,8 +70,7 @@ void Sorting::stdSort(){
 
 void Sorting::quickSort(int leftElement, int rightElement){
     int q;
-	if (leftElement < rightElement)
-	{
+	if (leftElement < rightElement){
 		q = partition(leftElement, rightElement); // dzielimy tablice na dwie czesci; q oznacza punkt podzialu
 		quickSort( leftElement, q); // wywolujemy rekurencyjnie quicksort dla pierwszej czesci tablicy
 		quickSort(q + 1, rightElement); // wywolujemy rekurencyjnie quicksort dla drugiej czesci tablicy
@@ -105,5 +105,6 @@ void Sorting::reset(){
     for (int x = 0; x < amount; x++){
         vec.push_back(rand() % 1000 + 1);
         //vec.push_back(amount - x);
+        //vec.push_back(x);
     }   
 }

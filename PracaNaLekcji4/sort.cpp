@@ -3,6 +3,7 @@
 #include <iostream>
 
 using namespace std;
+using namespace chrono;
 
 int main(){
     Sorting bubble;
@@ -10,79 +11,72 @@ int main(){
     Sorting quick;
     Sorting select;
     Sorting std;
+    
+    auto start = steady_clock::now();    
+    auto stop = steady_clock::now();
 
 for (int i = 0; i < 3; i++){
     std.reset();
-    auto start = chrono::steady_clock::now();
+     start = steady_clock::now();
 
     std.stdSort();
 
-    auto stop = chrono::steady_clock::now();
+     stop = steady_clock::now();
 
-    chrono::duration<double> totTime = stop - start;
-    
-    cout << fixed;
+    duration<double> totTime = stop - start;
 
     cout << totTime.count() << " std sort" << endl;
 }
 
 for (int i = 0; i < 3; i++){
-    bubble.reset();
-    auto start = chrono::steady_clock::now();
+    quick.reset();
+     start = steady_clock::now();
 
-    bubble.bubbleSort();
+    quick.quickSort(0, quick.amount-1);
 
-    auto stop = chrono::steady_clock::now();
+    stop = steady_clock::now();
 
-    chrono::duration<double> totTime = stop - start;
-    
-    cout << fixed;
+    duration<double> totTime = stop - start;
 
-    cout << totTime.count() << " bubble sort" << endl;
+    cout << totTime.count() << " quick sort  " << endl;
 }
-
+/*
 for (int i = 0; i < 3; i++){
     insert.reset();
-    auto start = chrono::steady_clock::now();
+     start = steady_clock::now();
 
     insert.insertionSort();
 
-    auto stop = chrono::steady_clock::now();
+     stop = steady_clock::now();
 
-    chrono::duration<double> totTime = stop - start;
-    
-    cout << fixed;
+    duration<double> totTime = stop - start;
 
     cout << totTime.count() << " insertion sort" << endl;
 }
 
 for (int i = 0; i < 3; i++){
-    quick.reset();
-    auto start = chrono::steady_clock::now();
-
-    quick.quickSort(0, quick.amount-1);
-
-    auto stop = chrono::steady_clock::now();
-
-    chrono::duration<double> totTime = stop - start;
-    
-    cout << fixed;
-
-    cout << totTime.count() << " quick sort" << endl;
-}
-
-for (int i = 0; i < 3; i++){
     select.reset();
-    auto start = chrono::steady_clock::now();
+     start = steady_clock::now();
 
     select.selectionSort();
 
-    auto stop = chrono::steady_clock::now();
+     stop = steady_clock::now();
 
-    chrono::duration<double> totTime = stop - start;
-    
-    cout << fixed;
-
+    duration<double> totTime = stop - start;
+ 
     cout << totTime.count() << " selection sort" << endl;
 }
+
+for (int i = 0; i < 3; i++){
+    bubble.reset();
+     start = steady_clock::now();
+
+    bubble.bubbleSort();
+
+    stop = steady_clock::now();
+
+    duration<double> totTime = stop - start;
+
+    cout << totTime.count() << " bubble sort  " << endl;
+}*/
 }
