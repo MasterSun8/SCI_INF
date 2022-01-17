@@ -40,7 +40,7 @@ for (int i = 0; i < 3; i++){
 
     cout << totTime.count() << " quick sort  " << endl;
 }
-/*
+
 for (int i = 0; i < 3; i++){
     insert.reset();
      start = steady_clock::now();
@@ -78,5 +78,5 @@ for (int i = 0; i < 3; i++){
     duration<double> totTime = stop - start;
 
     cout << totTime.count() << " bubble sort  " << endl;
-}*/
+}
 }

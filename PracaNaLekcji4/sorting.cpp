@@ -8,7 +8,7 @@
 using namespace std;
 
 Sorting::Sorting(){
-    amount = 10000000;
+    amount = 1000;
     srand (time(NULL));
 
     for (int x = 0; x < amount; x++){
@@ -25,7 +25,7 @@ void Sorting::parseVector(){
 }
 
 void Sorting::insertionSort(){
-    for(auto j = 1; j <= vec.size(); j++){
+    for(auto j = 1; j < vec.size(); j++){
       int key = vec[j];
       int i = j-1;
 
@@ -53,9 +53,9 @@ void Sorting::bubbleSort(){
 
 void Sorting::selectionSort(){
     int temp;
-    for(auto j = 1; j < vec.size(); j++){
+    for(auto j = 0; j < vec.size()-1; j++){
         temp = j;
-        for(auto i = j+1; i <= vec.size(); i++){
+        for(auto i = j+1; i < vec.size(); i++){
             if(vec[i] < vec[temp]){
                 temp = i;
             }
